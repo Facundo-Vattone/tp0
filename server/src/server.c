@@ -7,9 +7,12 @@ int main(void) {
 	log_info(logger, "Servidor listo para recibir al cliente");
 	int cliente_fd = esperar_cliente(server_fd);
 
+	printf("cliente %i \n",cliente_fd);
+	
 	t_list* lista;
 	while (1) {
 		int cod_op = recibir_operacion(cliente_fd);
+		printf("cod op %i \n", cod_op);
 		switch (cod_op) {
 		case MENSAJE:
 			recibir_mensaje(cliente_fd);
